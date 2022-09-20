@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TESTE 3</title>
+
+    <style>
+    h1 {
+        color: white;
+        
+        
+    }
+
+    body{
+        background-color: blue;
+        font: 16px Arial;
+    }
+
+    #quadro{
+        background: white;
+        width: 30em;
+        
+        margin: auto;
+        border-radius: 20px;
+        padding:20px;
+        text-align: left;
+        
+
+    }
+    #container{
+           
+        text-align: center;       
+
+    }
+
+    #idade, #sexo, #botao{
+        margin: 10px;
+    }
+
+    img{
+        width: 400px;
+    }
+    
+  
+    </style>
+</head>
+<body>    
+   <div id="container">
+       <h1>Verificador de Idade</h1>
+   <div id="quadro">
+   
+    <div id="cadastro">
+
+        <div> Ano de nascimento: <input type="number" name="idade" id="idade" placeholder="ex:1990"></div> 
+       
+        <div id="sexo"> 
+        Sexo: <input type="radio" name="genero" id="masculino" value="M"> Masculino
+              <input type="radio" name="genero" id="feminino" value="F">  Feminino
+        </div>
+       
+        <input type="button" value="Verificar" id="botao" onclick="verificarIdade()">
+    
+    </div>
+    <div id="resultado">
+       Preencha os dados acima para ver o resultado!
+        <div id="resImg">
+
+        
+        </div>        
+
+    
+    </div>
+    
+
+
+
+   </div>
+   </div>
+
+
+    <script>
+    
+
+        
+       var idade  = document.getElementById('idade')
+       var genero = document.getElementsByName('genero')       
+      
+       
+
+        function verificarIdade(){
+
+            var ano = new Date()
+                anoAtual = ano.getFullYear()
+
+            var idadeReal = Number(idade.value)
+            var idadeCliente = anoAtual - idadeReal
+            
+            var img = document.createElement('img')
+                    img.setAttribute('id', 'foto')
+
+            var generoReal = ''
+            if(genero[0].checked ){
+                generoReal = 'Masculino'
+
+                window.document.getElementById("resultado").innerText = `Detectamos ${generoReal} com ${idadeCliente} anos`
+                resultado.appendChild(img)
+
+
+
+                img.setAttribute('src', 'imagem2.jpg')
+            }
+            else if (genero[1].checked){
+                generoReal = 'Feminino'
+                window.document.getElementById("resultado").innerText = `Detectamos ${generoReal} com ${idadeCliente} anos`
+                resultado.appendChild(img)
+                img.setAttribute('src', 'imagem.jpg')
+            }
+
+
+           
+            
+           
+       
+            
+           
+
+          
+        }
+
+
+    </script>
+</body>
+</html>
